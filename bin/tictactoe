@@ -1,3 +1,35 @@
 #!/usr/bin/env ruby
 
 require_relative '../config/environment'
+
+
+def new_game
+    puts "How many human players will there be?"
+    player_amount = gets.strip
+    puts "Who will go first and be X? Enter p1 for Player 1 or p2 for Player 2:"
+    player_x = gets.strip
+   
+    
+        game = Game.new
+        until game.won? == true
+            game.play
+        end
+    
+end
+
+puts "Hello, and welcome to Tic Tac Toe"
+new_game
+
+
+    def another_game
+        puts "Would you like to play again? Y/N"
+        replay = gets.strip
+        if replay == "Y" || replay == "y"
+            new_game
+        elsif replay == "N" || replay == "n"
+            exit
+        else
+            another_game
+        end
+    end
+
